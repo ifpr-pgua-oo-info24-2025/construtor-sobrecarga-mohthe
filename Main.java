@@ -346,7 +346,8 @@ public class Main{
 
             System.out.println("Escolha:");
             for (Condutor condutor : condutores) {
-                System.out.println(condutor);
+                auxInt++;
+                System.out.println(auxInt + "- "+ condutor.getNome() + " " + condutor.getCnh());
             }
             auxInt = scan.nextInt();
             scan.nextLine();
@@ -403,7 +404,8 @@ public class Main{
 
             System.out.println("Escolha:");
             for (Motor motor : motores) {
-                System.out.println(motor);
+                auxInt++;
+                System.out.println(auxInt + "- "+ motor.getTipo() + " " + motor.getPotencia());
             }
             auxInt = scan.nextInt();
             scan.nextLine();
