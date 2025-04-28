@@ -56,7 +56,7 @@ class Carro{
         return "1- Placa:" + this.placa +
         "\n" + "2- Modelo:" + this.modelo + 
         "\n" + "3- Marca:" + this.marca + 
-        "\n" + (this.condutor != null ? condutor.toString() : "Não definido") +
-        "\n" + (this.motor != null ? motor.toString() : "Não definido");
+        "\n" + (this.condutor != null ? condutor.toString() : "4- Condutor: Não definido") +
+        "\n" + (this.motor != null ? motor.toString() : "5- Motor: Não definido");
     }
 }

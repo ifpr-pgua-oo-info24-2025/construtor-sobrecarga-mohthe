@@ -24,6 +24,6 @@ class Motor{
 
     public String toString(){
         return "5- Tipo: " + this.tipo + 
-        " / Potencia:" + this.potencia;
+        " / Potencia: " + this.potencia;
     }
 }

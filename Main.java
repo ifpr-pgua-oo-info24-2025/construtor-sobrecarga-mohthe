@@ -237,10 +237,10 @@ public class Main{
     }
 
     public static void alteracaoCarro(Scanner scan, Integer index){
-        Integer auxInt = 0;
+        Integer auxInt = -1;
         String auxStr;
         
-        while((auxInt < 1) || (auxInt > 5)){
+        while((auxInt < 0) || (auxInt > 5)){
             clearScreen();
 
             System.out.println(garagem.get(index));
@@ -260,57 +260,75 @@ public class Main{
                 break;
                 
             case 2:
-                System.out.println("Digite a nova marca:");
-                auxStr = scan.nextLine();
-
-                garagem.get(index).setMarca(auxStr);
-                break;
-
+            System.out.println("Digite o novo modelo:");
+            auxStr = scan.nextLine();
+            
+            garagem.get(index).setModelo(auxStr);
+            break;
+            
             case 3:
-                System.out.println("Digite o novo modelo:");
-                auxStr = scan.nextLine();
+            System.out.println("Digite a nova marca:");
+            auxStr = scan.nextLine();
 
-                garagem.get(index).setModelo(auxStr);
+            garagem.get(index).setMarca(auxStr);
                 break;
 
             case 4:
-                while((auxInt < 1) || (auxInt > condutores.size())){
+                auxInt = -1;
+                while((auxInt < 0) || (auxInt > condutores.size())){
                     clearScreen();
 
-                    auxInt++;
                     System.out.println("Digite o novo condutor:");
+                    System.out.println("0- Nenhum condutor");
+
+                    auxInt++;
                     for (Condutor condutor : condutores){
+                        auxInt++;
                         System.out.printf("%d- ", auxInt);
                         System.out.println(condutor.getNome());
                     }
                     auxInt = scan.nextInt();
                     scan.nextLine();
+                }
 
-                    auxInt--;
+                auxInt--;
+                if(auxInt == -1){
+                    garagem.get(index).setCondutor((null));
+                }
+                else{
                     garagem.get(index).setCondutor(condutores.get(auxInt));
                 }
                 break;
 
             case 5:
-                while((auxInt < 1) || (auxInt > motores.size())){
+                auxInt = -1;
+                while((auxInt < 0) || (auxInt > motores.size())){
                     clearScreen();
 
-                    auxInt++;
                     System.out.println("Digite o novo motor:");
+                    System.out.println("0- Nenhum motor");
+
+                    auxInt++;
                     for (Motor motor : motores){
+                        auxInt++;
                         System.out.printf("%d- ", auxInt);
                         System.out.println(motor.getTipo() + "/ Potencia: " + motor.getPotencia());
                     }
                     auxInt = scan.nextInt();
                     scan.nextLine();
+                }
 
-                    auxInt--;
+                auxInt--;
+                if(auxInt == -1){
+                    garagem.get(index).setMotor((null));
+                }
+                else{
                     garagem.get(index).setMotor(motores.get(auxInt));
                 }
                 break;
             
             default:
-                return;
+                break;
         }
     }
 
